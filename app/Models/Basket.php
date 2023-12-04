@@ -11,7 +11,6 @@ class Basket extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
     protected $fillable=[
-        'drugName',
         'drugQuan',
         'orders_Id',
         'drugs_Id'

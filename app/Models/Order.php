@@ -18,12 +18,14 @@ class Order extends Model
         'recieve',
         'paid',
         'unpaid',
+        'users_Id',
+        'store_houses_Id'
     ];
-    public function store_houses()
+    public function store_houses(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Order::class);
     }
-    public function users()
+    public function users(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
     }

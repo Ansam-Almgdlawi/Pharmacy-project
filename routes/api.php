@@ -17,10 +17,12 @@ use App\Http\Controllers\AuthUserController;
 |
 */
 //register user
+
 Route::post('/register',[AuthUserController::class,'register']);
 Route::post('login',[AuthUserController::class,'login']);
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('logout',[AuthUserController::class,'logout']);
+    Route::post('createOrder',[\App\Http\Controllers\OrderController::class,'createOrder']);
 });
 //register owner
 Route::post('/registerHome',[StoreHouseController::class,'register']);

@@ -13,15 +13,13 @@ class AuthUserController extends Controller
     //register
     public function register(Request $request){
         $fields=$request->validate([
-            'firstName'=>['required'],
-            'lastName'=>['required'],
+            'email'=>['required','unique:users,email'],
             'mobile'=>['required','digits:10','unique:users,mobile'],
             'password'=>['required']
         ]);
 
         $user=User::query()->create([
-            'firstName'=>$fields['firstName'],
-            'lastName'=>$fields['lastName'],
+            'email'=>$fields['email'],
             'mobile'=>$fields['mobile'],
             'password'=>bcrypt($fields['password']),
         ]);
@@ -40,11 +38,12 @@ class AuthUserController extends Controller
     //login
     public function login(Request $request){
         $request->validate([
-            'mobile' => ['required','digits:10','exists:users,mobile'],
+            'mobile' => ['digits:10','exists:users,mobile'],
             'password' => ['required'],
+            'email' => ['required','exists:users,email'],
 
         ]);
-        if(!Auth::attempt($request->only(['mobile','password'])))
+        if(!Auth::guard('user')->attempt($request->only(['email','password'])))
         {
             $message='Password is incorrect';
             return response()->json([
@@ -54,7 +53,7 @@ class AuthUserController extends Controller
             ],500);
         }
 
-        $user = User::query()->where('mobile', $request['mobile'])->first();
+        $user = User::query()->where('email', $request['email'])->first();
         $token=$user->createToken("API TOKEN")->plainTextToken;
         $message='You logged in sucsessfully';
         $response=[

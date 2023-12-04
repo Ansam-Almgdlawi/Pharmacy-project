@@ -13,13 +13,13 @@ class StoreHouseController extends Controller
     public function register(Request $request)
     {
         $fields=$request->validate([
-            'name'=>['required'],
+            'email'=>['required','unique:store_houses,email'],
             'mobile'=>['required','digits:10','unique:store_houses,mobile'],
             'password'=>['required']
         ]);
 
         $user=StoreHouse::query()->create([
-           'name'=>$fields['name'],
+           'email'=>$fields['email'],
             'mobile'=>$fields['mobile'],
             'password'=>bcrypt($fields['password']),
         ]);
@@ -38,21 +38,22 @@ class StoreHouseController extends Controller
 
     public function login(Request $request){
         $request->validate([
-            'mobile' => ['required','digits:10'],
+            'mobile' => ['digits:10','exists:store_houses,mobile'],
+            'email'=>['required','exists:store_houses,email'],
             'password' => ['required'],
 
         ]);
-//        if(!Auth::attempt($request->only(['mobile','password'])))
-//        {
-//            $message='Mobile or Password dose not match with our recored';
-//            return response()->json([
-//                'data'=>[],
-//                'status'=>0,
-//                'message'=>$message
-//            ],500);
-//        }
+        if(!Auth::guard('store_house')-> attempt($request->only(['email','password'])))
+        {
+            $message='Password is incorrect';
+            return response()->json([
+                'data'=>[],
+                'status'=>0,
+                'message'=>$message
+            ],500);
+        }
 
-        $user = StoreHouse::query()->where('mobile', $request['mobile'])->first();
+        $user = StoreHouse::query()->where('email', $request['email'])->first();
         $token=$user->createToken("API TOKEN")->plainTextToken;
         $message='You logged in sucsessfully';
         $response=[

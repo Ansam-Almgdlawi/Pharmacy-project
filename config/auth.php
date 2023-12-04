@@ -40,6 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'store_house' => [
+            'driver' => 'session',
+            'provider' =>'store_houses',
+        ],
+        'user' => [
+            'driver' => 'session',
+            'provider' =>'users',
+        ],
     ],
 
     /*
@@ -64,11 +72,15 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'store_houses' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\StoreHouse::class,
+        ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+//         'users','store_houses' => [
+//             'driver' => 'database',
+//             'table' => 'users','store_houses',
+//         ],
     ],
 
     /*

@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('baskets', function (Blueprint $table) {
             $table->id();
-            $table->string('drugName');
             $table->string('drugQuan');
             $table->foreignId('orders_Id')->constrained('orders');
             $table->foreignId('drugs_Id')->constrained('drugs');
