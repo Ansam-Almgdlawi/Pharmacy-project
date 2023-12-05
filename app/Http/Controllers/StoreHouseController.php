@@ -13,13 +13,15 @@ class StoreHouseController extends Controller
     public function register(Request $request)
     {
         $fields=$request->validate([
+            'name'=>['required','unique:store_houses,name'],
             'email'=>['required','unique:store_houses,email'],
             'mobile'=>['required','digits:10','unique:store_houses,mobile'],
             'password'=>['required']
         ]);
 
         $user=StoreHouse::query()->create([
-           'email'=>$fields['email'],
+            'name'=>$fields['name'],
+            'email'=>$fields['email'],
             'mobile'=>$fields['mobile'],
             'password'=>bcrypt($fields['password']),
         ]);

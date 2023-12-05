@@ -7,6 +7,7 @@ use App\Models\StoreHouse;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DrugController extends Controller
 {
@@ -19,8 +20,9 @@ class DrugController extends Controller
             'expirationDate' => 'required',
             'price' => 'required',
             'classifications_Id' => 'required',
-            'store_houses_Id'=>'required'
+           // 'store_houses_Id'=>'required'
         ]);
+       $id= auth()->user()->id;
         $drug=Drug::query()->create([
             'scientificName'=>$data['scientificName'],
             'commercialName'=>$data['commercialName'],
@@ -28,8 +30,7 @@ class DrugController extends Controller
             'expirationDate'=>$data['expirationDate'],
             'price'=>$data['price'],
             'classifications_Id'=>$data['classifications_Id'],
-            'store_houses_Id'=>$data['store_houses_Id']
-
+            'store_houses_Id'=>$id,
         ]);
         // Create a new medicine instance
        // $drug->drug_store_house()->attach($drug);

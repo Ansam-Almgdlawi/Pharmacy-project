@@ -13,11 +13,8 @@ class Order extends Model
 
     protected $fillable = [
         'hestoryOrder',
-        'preperation',
-        'sent',
-        'recieve',
-        'paid',
-        'unpaid',
+        'status_order',
+        'status_paid',
         'users_Id',
         'store_houses_Id'
     ];

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('quantity');
             $table->date('expirationDate');
             $table->decimal('price');
-            $table->foreignId('classifications_Id')->constrained('classifications');
-            $table->foreignId('store_houses_Id')->constrained('store_houses');
+            $table->foreignId('classifications_Id')->constrained('classifications')->cascadeOnDelete();
+            $table->foreignId('store_houses_Id')->constrained('store_houses')->cascadeOnDelete();
             $table->timestamps();
         });
     }

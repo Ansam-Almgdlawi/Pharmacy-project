@@ -14,13 +14,10 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->date('hestoryOrder');
-            $table->boolean('preperation')->default('false');
-            $table->boolean('sent')->default('false');
-            $table->boolean('recieve')->default('false');
-            $table->boolean('paid')->default('false');
-            $table->boolean('unpaid')->default('false');
+            $table->string('status_order');
+            $table->string('status_paid');
             $table->foreignId('users_Id')->constrained('users');
-            $table->foreignId('store_houses_Id')->constrained('store_houses');
+            $table->foreignId('store_houses_Id')->constrained('store_houses')->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -18,6 +18,14 @@ use App\Http\Controllers\AuthUserController;
 */
 //register user
 
+
+
+
+
+
+
+
+
 Route::post('/register',[AuthUserController::class,'register']);
 Route::post('login',[AuthUserController::class,'login']);
 Route::middleware('auth:sanctum')->group(function(){
@@ -29,6 +37,8 @@ Route::post('/registerHome',[StoreHouseController::class,'register']);
 Route::post('loginHome',[StoreHouseController::class,'login']);
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('logoutHome',[StoreHouseController::class,'logout']);
+    Route::post('/addDrug', [DrugController::class, 'addDrug']);
+
 
 });
 //أدوية
@@ -49,7 +59,7 @@ Route::post('/store/{id}', [\App\Http\Controllers\BasketController::class, 'stor
 
 
 
-Route::post('/addDrug', [DrugController::class, 'addDrug']);
+
 Route::get('/show/{classifications_Id}', [ClassificationController::class, 'index']);
 Route::get('/storeDrug/{id}', [DrugController::class, 'storeDrug']);
 Route::get('/pharmacist/{id}/store/{id}', [DrugController::class, 'pharmacistMedicines']);
