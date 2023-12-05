@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('scientificName');
             $table->string('commercialName');
+            $table->string('manufacturer');
             $table->integer('quantity');
             $table->date('expirationDate');
             $table->decimal('price');

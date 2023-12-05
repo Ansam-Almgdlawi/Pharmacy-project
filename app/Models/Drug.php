@@ -14,6 +14,7 @@ class Drug extends Model
     protected $fillable=[
        'scientificName',
         'commercialName',
+        'manufacturer',
         'quantity',
         'expirationDate',
         'price',
