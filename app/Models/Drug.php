@@ -34,4 +34,8 @@ class Drug extends Model
     {
         return $this->hasMany(Basket::class,'drugs_Id');
     }
+    public function favorite(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Favorite::class);
+    }
 }

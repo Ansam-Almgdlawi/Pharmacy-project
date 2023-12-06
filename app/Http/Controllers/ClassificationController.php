@@ -11,8 +11,6 @@ class ClassificationController extends Controller
     public function index($classificationId): array
     {
         $classification = Classification::findOrFail($classificationId);
-
-        // Retrieve the associated medicines
         $drugs[] = $classification->drugs;
         return $drugs;
     }

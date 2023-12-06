@@ -206,6 +206,55 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "UniqueEmail",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "asmaa@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "0987654321",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -253,7 +302,7 @@
 							"response": []
 						},
 						{
-							"name": "Sucsess",
+							"name": "requiredEmail",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -268,12 +317,111 @@
 									"formdata": [
 										{
 											"key": "mobile",
-											"value": "0935552093",
+											"value": "0935552090",
 											"type": "text"
 										},
 										{
 											"key": "password",
-											"value": "1234",
+											"value": "12345",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Succsess without mobile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "asmaa@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Succsess",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "asmaa@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "0935552090",
 											"type": "text"
 										}
 									]
@@ -363,6 +511,11 @@
 											"key": "password",
 											"value": "12343",
 											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "asmaa@gmail.com",
+											"type": "text"
 										}
 									]
 								},
@@ -400,12 +553,17 @@
 									"formdata": [
 										{
 											"key": "mobile",
-											"value": "0935552097",
+											"value": "0935552090",
 											"type": "text"
 										},
 										{
 											"key": "password",
 											"value": "00000",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "asmaa@gmail.com",
 											"type": "text"
 										}
 									]
@@ -441,7 +599,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "8|VGl3S9AQXCDhkG45ZRajbMGwdKgxNVEXMH7lZnyJ02a36dc1",
+											"value": "4|NQoMjZQ5pBMHehR1VR9uq0ggAWmrLhxk8QfFQNBv8526d9d2",
 											"type": "string"
 										}
 									]
@@ -536,18 +694,18 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "name",
-											"value": "Alhayat",
+											"key": "email",
+											"value": "ansam@gmail.com",
 											"type": "text"
 										},
 										{
 											"key": "mobile",
-											"value": "0987654321",
+											"value": "0935552098",
 											"type": "text"
 										},
 										{
 											"key": "password",
-											"value": "123",
+											"value": "1234",
 											"type": "text"
 										}
 									]
@@ -674,13 +832,13 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "name",
+											"key": "email",
 											"value": "Alhayat",
 											"type": "text"
 										},
 										{
 											"key": "mobile",
-											"value": "0935552099",
+											"value": "0935552098",
 											"type": "text"
 										},
 										{
@@ -736,7 +894,61 @@
 									"formdata": [
 										{
 											"key": "mobile",
-											"value": "0935552092",
+											"value": "0987654325",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123455",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "rbcs@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Rbcs",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/loginHome",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"loginHome"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "success without mobile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "ansam@gmail.com",
 											"type": "text"
 										},
 										{
@@ -745,8 +957,8 @@
 											"type": "text"
 										},
 										{
-											"key": "name",
-											"value": "Alhayat",
+											"key": "mobile",
+											"value": "",
 											"type": "text",
 											"disabled": true
 										}
@@ -822,6 +1034,11 @@
 											"key": "password",
 											"value": "123",
 											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ansam@gmail.com",
+											"type": "text"
 										}
 									]
 								},
@@ -844,7 +1061,7 @@
 							"response": []
 						},
 						{
-							"name": "error mobile | password",
+							"name": "error mobile",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -865,6 +1082,111 @@
 										{
 											"key": "password",
 											"value": "12364",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ansam@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/loginHome",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"loginHome"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "error password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "mobile",
+											"value": "0987654321",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "1236",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ansam@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/loginHome",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"loginHome"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "error email",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "mobile",
+											"value": "0987654321",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "1236",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ansam1@gmail.com",
 											"type": "text"
 										}
 									]
@@ -929,7 +1251,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "9|jtMsPiek2Jgkir5OidBbhpNZgBZIyol8EpMlkP5a296547c2",
+											"value": "8|fLMnpCfuhPCSGuXrInoE507JQk6fTnuoWnQytKbmce48066f",
 											"type": "string"
 										}
 									]
@@ -1029,6 +1351,16 @@
 						{
 							"name": "Success",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "2|Y0YXu3l8OKV8fpQFZttiQp9rPAnHDDDgvqGpPyNca464c43b",
+											"type": "string"
+										}
+									]
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -1042,17 +1374,22 @@
 									"formdata": [
 										{
 											"key": "scientificName",
-											"value": "farma",
+											"value": "farmaa",
 											"type": "text"
 										},
 										{
 											"key": "commercialName",
-											"value": "setamol",
+											"value": "panado",
+											"type": "text"
+										},
+										{
+											"key": "manufacturer",
+											"value": "fffffff",
 											"type": "text"
 										},
 										{
 											"key": "quantity",
-											"value": "10",
+											"value": "100",
 											"type": "text"
 										},
 										{
@@ -1067,14 +1404,8 @@
 										},
 										{
 											"key": "classifications_Id",
-											"value": "1",
+											"value": "2",
 											"type": "text"
-										},
-										{
-											"key": "drug_Id",
-											"value": "1",
-											"type": "text",
-											"disabled": true
 										}
 									]
 								},
@@ -1363,6 +1694,36 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Show Drugs in storeHouse",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/storeDrug/5",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"storeDrug",
+										"5"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
@@ -1372,10 +1733,279 @@
 			"name": "Orders",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "quantity not available",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|VCMzRhcixjArwgt5BNy5EPphMozv700VIGy0cDdQ6e376a9e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"medicines\": [\r\n        {\"id\": 1, \"quantity\":1000},\r\n        {\"id\": 2, \"quantity\": 5}\r\n    ],\r\n    \"store_houses_Id\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/createOrder",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"createOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "success",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|VCMzRhcixjArwgt5BNy5EPphMozv700VIGy0cDdQ6e376a9e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"medicines\": [\r\n        {\"id\": 2, \"quantity\":10},\r\n        {\"id\": 3, \"quantity\": 10}\r\n    ],\r\n    \"store_houses_Id\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/createOrder",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"createOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status_order\":\"sent\",\r\n    \"status_paid\":\"paid\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/update/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrdersStore",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/getOrders/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getOrders",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrdersPh",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/getOrdersPh/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getOrdersPh",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "no orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/getOrdersPh/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getOrdersPh",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "favorite",
+			"item": [
+				{
+					"name": "insert",
 					"request": {
 						"method": "GET",
 						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "get all fav",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|npkEZW3ygoaYbGWsHZoYdW9HO5xcwufXCwPzYp43ce631ac5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/getfav",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getfav"
+							]
+						}
 					},
 					"response": []
 				}
