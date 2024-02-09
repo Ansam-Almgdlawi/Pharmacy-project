@@ -7,7 +7,7 @@ use App\Models\Drug;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\StoreHouse;
 class AuthUserController extends Controller
 {
     //register
@@ -77,7 +77,24 @@ class AuthUserController extends Controller
 
     public function getClass()
     {
-        $drug[]=Classification::all();
-        return $drug;
+        $drug=Classification::all();
+        $response=[
+            'data'=> $drug,
+        ];
+         return response()->json([
+            'browses'=>$response,
+            'status'=>1,
+        ],201);
+    }
+    public function getStoreHouse()
+    {
+        $drug=StoreHouse::all();
+        $response=[
+            'data'=> $drug,
+        ];
+         return response()->json([
+            'store'=>$response,
+            'status'=>1,
+        ],201);
     }
 }

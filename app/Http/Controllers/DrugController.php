@@ -48,11 +48,15 @@ class DrugController extends Controller
     public function storeDrug($storeId)
     {
         $drugs = Drug::where('store_houses_Id', $storeId)->get();
-
+        $response=[
+            'data'=> $drugs,
+        ];
         return response()->json([
-            'drugs' =>$drugs ,
-        ]);
+            'drugs' =>$response ,
+            'status'=>1,
+        ],201);
     }
+  
  //البحث عن دواء
     public function search($commercialName): JsonResponse
 {

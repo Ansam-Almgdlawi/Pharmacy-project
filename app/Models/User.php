@@ -23,7 +23,7 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
+    /* 
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
@@ -47,6 +47,15 @@ class User extends Authenticatable
     }
     public function favorite(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Favorite::class);
+        return $this->hasMany(Favorit::class);
+    }
+
+    public function token(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Token::class);
+    }
+    public function notification(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Notification::class);
     }
 }

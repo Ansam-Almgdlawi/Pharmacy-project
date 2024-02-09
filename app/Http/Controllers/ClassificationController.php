@@ -8,11 +8,17 @@ use Illuminate\Http\Request;
 
 class ClassificationController extends Controller
 {
-    public function index($classificationId): array
+    public function index($classificationId)
     {
         $classification = Classification::findOrFail($classificationId);
-        $drugs[] = $classification->drugs;
-        return $drugs;
+        $drugs= $classification->drugs;
+        $response=[
+            'data'=> $drugs,
+        ];
+         return response()->json([
+            'store'=>$response,
+            'status'=>1,
+        ],201);
+        
     }
-
 }

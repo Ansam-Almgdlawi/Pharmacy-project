@@ -13,7 +13,7 @@ class StoreHouse extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $guarded='store_house';
-    /**
+    /* *
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -25,7 +25,7 @@ class StoreHouse extends Authenticatable
         'password',
     ];
 
-    /**
+    /** 
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
@@ -51,6 +51,14 @@ class StoreHouse extends Authenticatable
     public function orders(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Order::class);
+    }
+    public function notification(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Notification::class);
+    }
+    public function token(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Token::class);
     }
 
 }

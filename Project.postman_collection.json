@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "0decd984-5a37-4834-b40a-5819fdd6956d",
+		"_postman_id": "3a997fc4-f084-45bd-adae-60b7b115b3d1",
 		"name": "Project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30894423"
+		"_exporter_id": "31721913"
 	},
 	"item": [
 		{
@@ -60,14 +60,15 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "firstName",
-											"value": "Asmaa",
+											"key": "email",
+											"value": "asmaa@gmail.com",
 											"type": "text"
 										},
 										{
-											"key": "lastName",
+											"key": "",
 											"value": "asssee",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "mobile",
@@ -612,6 +613,17 @@
 										"type": "text"
 									}
 								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
 								"url": {
 									"raw": "http://127.0.0.1:8000/api/logout",
 									"protocol": "http",
@@ -1622,6 +1634,42 @@
 							"response": []
 						},
 						{
+							"name": "getAllStore",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/getStoreHouse",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"getStoreHouse"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "get drug from class",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1763,13 +1811,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/createOrder",
+							"raw": "http://192.168.43.35:8000/api/createOrder",
 							"protocol": "http",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"192",
+								"168",
+								"43",
+								"35"
 							],
 							"port": "8000",
 							"path": [
@@ -1831,7 +1879,7 @@
 				{
 					"name": "Update",
 					"request": {
-						"method": "PUT",
+						"method": "PATCH",
 						"header": [
 							{
 								"key": "Accept",
@@ -1849,7 +1897,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/update/2",
+							"raw": "http://127.0.0.1:8000/api/update/4",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1861,7 +1909,7 @@
 							"path": [
 								"api",
 								"update",
-								"2"
+								"4"
 							]
 						}
 					},
@@ -1965,8 +2013,49 @@
 				{
 					"name": "insert",
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|fxlza4p80N3JCjum1lBf90unNPeqcC3HtkCoGmLm6af70fa9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "drugs_Id",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.1.103:8000/api/insert",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"1",
+								"103"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"insert"
+							]
+						}
 					},
 					"response": []
 				},
@@ -2010,6 +2099,212 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "success ph",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|chjUfZPdpCUOobCibEsDcYBtHeNlUjztET9ho7wCee2c264a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"start_date\": \"2023-12-10\",\r\n    \"end_date\": \"2023-12-30\",\r\n    \"store_houses_Id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/generateReports",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"generateReports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "success store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "23|1V0tsYEi6wUkSZdiEfU50c8AVTnXgSqCQdmPfoIXed222ce7",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "start_date",
+									"value": " 2023-1-1",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": " 2024-12-31",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/generateReportsStore",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"generateReportsStore"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|chjUfZPdpCUOobCibEsDcYBtHeNlUjztET9ho7wCee2c264a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "device_Token",
+							"value": "kslksmdlakfapdf",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/addToken",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"addToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|chjUfZPdpCUOobCibEsDcYBtHeNlUjztET9ho7wCee2c264a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "device_Token",
+							"value": "kslksmdlakfapdf",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/addToken",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"addToken"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

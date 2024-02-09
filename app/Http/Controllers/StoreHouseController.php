@@ -77,7 +77,14 @@ class StoreHouseController extends Controller
     }
     public function getDrug()
     {
-        $drug[]=Drug::all();
-        return $drug;
+        $drug=Drug::all();
+        $response=[
+            'data'=> $drug,
+        ];
+        return response()->json([
+            'drugs' =>$response ,
+            'status'=>1,
+        ],201);
     }
+  
 }

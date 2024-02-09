@@ -28,6 +28,6 @@ class Order extends Model
     }
     public function basket(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Basket::class);
+        return $this->hasMany(Basket::class,'orders_Id');
     }
 }

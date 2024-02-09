@@ -45,5 +45,11 @@ class StoreSeeder extends Seeder
                 'mobile'=>'0987654325',
                 'password'=>Hash::make('123455'),
             ]);
+            StoreHouse::create([
+                'name'=>'.',
+                'email'=>'.@gmail.com',
+                'mobile'=>'0982928397',
+                'password'=>Hash::make('123455'),
+            ]);
     }
 }

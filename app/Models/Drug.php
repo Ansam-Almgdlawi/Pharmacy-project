@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 //use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class Drug extends Model
 {
+    use SoftDeletes;
     use HasFactory,Notifiable,HasApiTokens;
     protected $fillable=[
        'scientificName',
@@ -19,8 +21,19 @@ class Drug extends Model
         'expirationDate',
         'price',
         'classifications_Id',
-        'store_houses_Id'
+        'store_houses_Id',
+        'isfavorite'
     ];
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($drug) {
+            if ($drug->quantity === 0) {
+                $drug->forceDelete();
+            }
+        });
+    }
 
     public function drug_store_house(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
@@ -36,6 +49,6 @@ class Drug extends Model
     }
     public function favorite(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Favorite::class);
+        return $this->hasMany(Favorit::class);
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Favorite extends Model
+class Favorit extends Model
 {
     use HasFactory,Notifiable,HasApiTokens;
 

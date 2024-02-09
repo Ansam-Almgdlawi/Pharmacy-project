@@ -6,24 +6,26 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
+    /* *
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('favorites', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('drugs_Id')->constrained()->cascadeOnDelete();
-            $table->foreignId('users_Id')->constrained()->cascadeOnDelete();
+            $table->foreignId('users_Id')->constrained('users');
+            $table->foreignId('store_house_Id')->constrained('store_houses');
+            $table->string('title');
+            $table->string('body');
             $table->timestamps();
         });
     }
 
-    /**
+    /* *
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('favorites');
+        Schema::dropIfExists('notifications');
     }
 };
